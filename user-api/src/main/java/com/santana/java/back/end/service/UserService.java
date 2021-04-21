@@ -42,9 +42,7 @@ public class UserService {
 
     public UserDTO delete(long userId) throws UserNotFoundException {
         Optional<User> user = userRepository.findById(userId);
-        if (user.isPresent()) {
-            userRepository.delete(user.get());
-        }
+        user.ifPresent(value -> userRepository.delete(value));
         throw new UserNotFoundException();
     }
 

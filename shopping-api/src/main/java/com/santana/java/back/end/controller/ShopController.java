@@ -18,20 +18,17 @@ public class ShopController {
 
     @GetMapping("/shopping/")
     public List<ShopDTO> getShops() {
-        List<ShopDTO> produtos = shopService.getAll();
-        return produtos;
+        return shopService.getAll();
     }
 
     @GetMapping("/shopping/shopByUser/{userIdentifier}")
     public List<ShopDTO> getShops(@PathVariable String userIdentifier) {
-        List<ShopDTO> produtos = shopService.getByUser(userIdentifier);
-        return produtos;
+        return shopService.getByUser(userIdentifier);
     }
 
     @GetMapping("/shopping/shopByDate")
     public List<ShopDTO> getShops(@RequestBody ShopDTO shopDTO) {
-        List<ShopDTO> produtos = shopService.getByDate(shopDTO);
-        return produtos;
+        return shopService.getByDate(shopDTO);
     }
 
     @GetMapping("/shopping/{id}")
@@ -41,14 +38,14 @@ public class ShopController {
 
     @PostMapping("/shopping/")
     public ShopDTO newShop(
-            @RequestHeader(name = "key", required = true) String key,
+            @RequestHeader(name = "key") String key,
             @RequestBody ShopDTO shopDTO) {
         return shopService.save(shopDTO, key);
     }
 
     @GetMapping("/shopping/search")
     public List<ShopDTO> getShopsByFilter(
-            @RequestParam(name = "dataInicio", required = true)
+            @RequestParam(name = "dataInicio")
             @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataInicio,
             @RequestParam(name = "dataFim", required = false)
             @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataFim,
@@ -58,9 +55,9 @@ public class ShopController {
 
     @GetMapping("/shopping/report")
     public ShopReportDTO getReportByDate(
-            @RequestParam(name = "dataInicio", required = true)
+            @RequestParam(name = "dataInicio")
             @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataInicio,
-            @RequestParam(name = "dataFim", required = true)
+            @RequestParam(name = "dataFim")
             @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataFim) {
         return shopService.getReportByDate(dataInicio, dataFim);
     }

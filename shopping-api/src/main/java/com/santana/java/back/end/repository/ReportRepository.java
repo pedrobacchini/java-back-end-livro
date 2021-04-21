@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface ReportRepository {
 
-    public List<Shop> getShopByFilters(Date dataInicio, Date dataFim, Float valorMinimo);
+    List<Shop> getShopByFilters(Date dataInicio, Date dataFim, Float valorMinimo);
 
-    public ShopReportDTO getReportByDate(Date dataInicio, Date dataFim);
+    ShopReportDTO getReportByDate(Date dataInicio, Date dataFim);
 
 }

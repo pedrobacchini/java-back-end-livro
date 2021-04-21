@@ -6,6 +6,7 @@ import com.santana.java.back.end.model.Shop;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +31,7 @@ public class ReportRepositoryImpl implements ReportRepository {
             sb.append("and s.total <= :valorMinimo ");
         }
 
-        Query query = entityManager.createQuery(sb.toString());
+        TypedQuery<Shop> query = entityManager.createQuery(sb.toString(), Shop.class);
         query.setParameter("dataInicio", dataInicio);
 
         if (dataFim != null) {
@@ -45,13 +46,11 @@ public class ReportRepositoryImpl implements ReportRepository {
 
     @Override
     public ShopReportDTO getReportByDate(Date dataInicio, Date dataFim) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("select count(sp.id), sum(sp.total), avg(sp.total) ");
-        sb.append("from shopping.shop sp ");
-        sb.append("where  sp.date >= :dataInicio ");
-        sb.append("and sp.date <= :dataFim ");
-
-        Query query = entityManager.createNativeQuery(sb.toString());
+        String queryString = "select count(sp.id), sum(sp.total), avg(sp.total) " +
+                "from shopping.shop sp " +
+                "where  sp.date >= :dataInicio " +
+                "and sp.date <= :dataFim ";
+        Query query = entityManager.createNativeQuery(queryString);
         query.setParameter("dataInicio", dataInicio);
         query.setParameter("dataFim", dataFim);
 

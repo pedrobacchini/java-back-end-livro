@@ -54,7 +54,7 @@ public class ShopService {
 
         shopDTO.setTotal(shopDTO.getItems()
                 .stream()
-                .map(x -> x.getPrice())
+                .map(ItemDTO::getPrice)
                 .reduce((float) 0, Float::sum));
 
         Shop shop = Shop.convert(shopDTO);

@@ -42,7 +42,7 @@ public class ProductService {
     }
 
     public ProductDTO save(ProductDTO productDTO) {
-        Boolean existsCategory = categoryRepository.existsById(productDTO.getCategory().getId());
+        boolean existsCategory = categoryRepository.existsById(productDTO.getCategory().getId());
         if (!existsCategory) {
             throw new CategoryNotFoundException();
         }
@@ -52,9 +52,7 @@ public class ProductService {
 
     public ProductDTO delete(long ProductId) throws ProductNotFoundException {
         Optional<Product> Product = productRepository.findById(ProductId);
-        if (Product.isPresent()) {
-            productRepository.delete(Product.get());
-        }
+        Product.ifPresent(product -> productRepository.delete(product));
         throw new ProductNotFoundException();
     }
 

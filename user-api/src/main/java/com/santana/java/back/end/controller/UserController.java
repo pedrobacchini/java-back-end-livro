@@ -16,8 +16,7 @@ public class UserController {
 
     @GetMapping("/user/")
     public List<UserDTO> getUsers() {
-        List<UserDTO> usuarios = userService.getAll();
-        return usuarios;
+        return userService.getAll();
     }
 
     @GetMapping("/user/{id}")
@@ -44,7 +43,7 @@ public class UserController {
 
     @GetMapping("/user/search")
     public List<UserDTO> queryByName(
-            @RequestParam(name = "nome", required = true) String nome) {
+            @RequestParam(name = "nome") String nome) {
         return userService.queryByName(nome);
     }
 
