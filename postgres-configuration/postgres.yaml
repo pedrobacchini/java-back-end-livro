@@ -15,14 +15,14 @@ spec:
         app: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres:latest
-        ports:
-        - containerPort: 5432
-        env:
-          - name: POSTGRES_USER
-            value: postgres
-          - name: POSTGRES_DB
-            value: dev
-          - name: POSTGRES_PASSWORD
-            value: postgres
+        - name: postgres
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_DB
+              value: dev
+            - name: POSTGRES_PASSWORD
+              value: postgres

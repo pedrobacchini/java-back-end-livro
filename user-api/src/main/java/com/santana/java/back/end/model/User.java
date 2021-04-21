@@ -1,102 +1,101 @@
 package com.santana.java.back.end.model;
 
-import java.util.Date;
+import com.santana.java.back.end.dto.UserDTO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
-import com.santana.java.back.end.dto.UserDTO;
-
-@Entity(name="user")
+@Entity(name = "user")
 public class User {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String nome;
-	private String cpf;
-	private String endereco;
-	private String key;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String nome;
+    private String cpf;
+    private String endereco;
+    private String key;
     private String email;
     private String telefone;
     private Date dataCadastro;
-        
-	public long getId() {
-		return id;
-	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getCpf() {
-		return cpf;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-	
-	public String getKey() {
-		return key;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	public void setKey(String key) {
-		this.key = key;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getKey() {
+        return key;
+    }
 
-	public String getTelefone() {
-		return telefone;
-	}
+    public void setKey(String key) {
+        this.key = key;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Date getDataCadastro() {
-		return dataCadastro;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public static User convert(UserDTO userDTO) {
-		User user = new User();
-		user.setNome(userDTO.getNome());
-		user.setEndereco(userDTO.getEndereco());
-		user.setCpf(userDTO.getCpf());
-		user.setKey(userDTO.getKey());
-		user.setEmail(userDTO.getEmail());
-		user.setTelefone(userDTO.getTelefone());
-		user.setDataCadastro(userDTO.getDataCadastro());
-		return user;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public static User convert(UserDTO userDTO) {
+        User user = new User();
+        user.setNome(userDTO.getNome());
+        user.setEndereco(userDTO.getEndereco());
+        user.setCpf(userDTO.getCpf());
+        user.setKey(userDTO.getKey());
+        user.setEmail(userDTO.getEmail());
+        user.setTelefone(userDTO.getTelefone());
+        user.setDataCadastro(userDTO.getDataCadastro());
+        return user;
+    }
 
 }
