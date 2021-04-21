@@ -1,21 +1,32 @@
-user-api/.classpath
-user-api/.project
-user-api/.settings/
-user-api/target/
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+src/main/resources/public/**
 
-shopping-client/.classpath
-shopping-client/.project
-shopping-client/.settings/
-shopping-client/target/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-product-api/.settings/
-product-api/target/
-product-api/.classpath
-product-api/.project
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
-shopping-api/.classpath
-shopping-api/.project
-shopping-api/.settings/
-shopping-api/target/
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
 
-/.metadata/
+### VS Code ###
+.vscode/
