@@ -8,9 +8,9 @@ public class ProductDTO {
     @NotBlank
     private String productIdentifier;
     @NotBlank
-    private String nome;
+    private String name;
     @NotNull
-    private Float preco;
+    private Float price;
     @NotNull
     private CategoryDTO category;
 
@@ -22,20 +22,20 @@ public class ProductDTO {
         this.productIdentifier = productIdentifier;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Float getPreco() {
-        return preco;
+    public Float getPrice() {
+        return price;
     }
 
-    public void setPreco(Float preco) {
-        this.preco = preco;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     public CategoryDTO getCategory() {

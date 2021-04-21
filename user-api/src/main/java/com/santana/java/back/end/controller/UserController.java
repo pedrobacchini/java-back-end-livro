@@ -43,8 +43,8 @@ public class UserController {
 
     @GetMapping("/user/search")
     public List<UserDTO> queryByName(
-            @RequestParam(name = "nome") String nome) {
-        return userService.queryByName(nome);
+            @RequestParam(name = "name") String name) {
+        return userService.queryByName(name);
     }
 
 }

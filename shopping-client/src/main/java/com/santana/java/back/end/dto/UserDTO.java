@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class UserDTO {
 
-    private String nome;
+    private String name;
     private String cpf;
-    private String endereco;
+    private String address;
     private String key;
     private String email;
-    private String telefone;
-    private Date dataCadastro;
+    private String phone;
+    private Date registerDate;
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCpf() {
@@ -28,12 +28,12 @@ public class UserDTO {
         this.cpf = cpf;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getAddress() {
+        return address;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getKey() {
@@ -52,20 +52,20 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public Date getDataCadastro() {
-        return dataCadastro;
+    public Date getRegisterDate() {
+        return registerDate;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
     }
 
 }

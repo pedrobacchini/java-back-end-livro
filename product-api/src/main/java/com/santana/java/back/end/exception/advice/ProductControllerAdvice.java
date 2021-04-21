@@ -24,7 +24,7 @@ public class ProductControllerAdvice {
     public ErrorDTO handleUserNotFound(ProductNotFoundException userNotFoundException) {
         ErrorDTO errorDTO = new ErrorDTO();
         errorDTO.setStatus(HttpStatus.NOT_FOUND.value());
-        errorDTO.setMessage("Produto não encontrado.");
+        errorDTO.setMessage("Product not found.");
         errorDTO.setTimestamp(new Date());
         return errorDTO;
     }
@@ -35,7 +35,7 @@ public class ProductControllerAdvice {
     public ErrorDTO handleCategoryNotFound(CategoryNotFoundException categoryNotFoundException) {
         ErrorDTO errorDTO = new ErrorDTO();
         errorDTO.setStatus(HttpStatus.NOT_FOUND.value());
-        errorDTO.setMessage("Categoria não encontrada.");
+        errorDTO.setMessage("Category not found.");
         errorDTO.setTimestamp(new Date());
         return errorDTO;
     }
@@ -48,7 +48,7 @@ public class ProductControllerAdvice {
         errorDTO.setStatus(HttpStatus.BAD_REQUEST.value());
         BindingResult result = ex.getBindingResult();
         List<FieldError> fieldErrors = result.getFieldErrors();
-        StringBuilder sb = new StringBuilder("Valor inválido para o(s) campo(s):");
+        StringBuilder sb = new StringBuilder("Invalid value for field (s):");
         for (FieldError fieldError : fieldErrors) {
             sb.append(" ");
             sb.append(fieldError.getField());

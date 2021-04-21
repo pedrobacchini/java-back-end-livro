@@ -3,7 +3,7 @@ package com.santana.java.back.end.dto;
 public class CategoryDTO {
 
     private Long id;
-    private String nome;
+    private String name;
 
     public Long getId() {
         return id;
@@ -13,12 +13,12 @@ public class CategoryDTO {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

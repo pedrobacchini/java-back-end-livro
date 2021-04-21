@@ -45,21 +45,21 @@ public class ShopController {
 
     @GetMapping("/shopping/search")
     public List<ShopDTO> getShopsByFilter(
-            @RequestParam(name = "dataInicio")
-            @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataInicio,
-            @RequestParam(name = "dataFim", required = false)
-            @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataFim,
-            @RequestParam(name = "valorMinimo", required = false) Float valorMinimo) {
-        return shopService.getShopsByFilter(dataInicio, dataFim, valorMinimo);
+            @RequestParam(name = "startDate")
+            @DateTimeFormat(pattern = "dd/MM/yyyy") Date startDate,
+            @RequestParam(name = "endDate", required = false)
+            @DateTimeFormat(pattern = "dd/MM/yyyy") Date endDate,
+            @RequestParam(name = "minimumValue", required = false) Float minimumValue) {
+        return shopService.getShopsByFilter(startDate, endDate, minimumValue);
     }
 
     @GetMapping("/shopping/report")
     public ShopReportDTO getReportByDate(
-            @RequestParam(name = "dataInicio")
-            @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataInicio,
-            @RequestParam(name = "dataFim")
-            @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataFim) {
-        return shopService.getReportByDate(dataInicio, dataFim);
+            @RequestParam(name = "startDate")
+            @DateTimeFormat(pattern = "dd/MM/yyyy") Date startDate,
+            @RequestParam(name = "endDate")
+            @DateTimeFormat(pattern = "dd/MM/yyyy") Date endDate) {
+        return shopService.getReportByDate(startDate, endDate);
     }
 
 }

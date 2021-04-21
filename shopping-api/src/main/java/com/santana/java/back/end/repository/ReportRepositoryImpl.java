@@ -17,42 +17,42 @@ public class ReportRepositoryImpl implements ReportRepository {
     private EntityManager entityManager;
 
     @Override
-    public List<Shop> getShopByFilters(Date dataInicio, Date dataFim, Float valorMinimo) {
+    public List<Shop> getShopByFilters(Date startDate, Date endDate, Float minimumValue) {
         StringBuilder sb = new StringBuilder();
         sb.append("select s ");
         sb.append("from shop s ");
-        sb.append("where s.date >= :dataInicio ");
+        sb.append("where s.date >= :startDate ");
 
-        if (dataFim != null) {
-            sb.append("and s.date <= :dataFim ");
+        if (endDate != null) {
+            sb.append("and s.date <= :endDate ");
         }
 
-        if (valorMinimo != null) {
-            sb.append("and s.total <= :valorMinimo ");
+        if (minimumValue != null) {
+            sb.append("and s.total <= :minimumValue ");
         }
 
         TypedQuery<Shop> query = entityManager.createQuery(sb.toString(), Shop.class);
-        query.setParameter("dataInicio", dataInicio);
+        query.setParameter("startDate", startDate);
 
-        if (dataFim != null) {
-            query.setParameter("dataFim", dataFim);
+        if (endDate != null) {
+            query.setParameter("endDate", endDate);
         }
 
-        if (valorMinimo != null) {
-            query.setParameter("valorMinimo", valorMinimo);
+        if (minimumValue != null) {
+            query.setParameter("minimumValue", minimumValue);
         }
         return query.getResultList();
     }
 
     @Override
-    public ShopReportDTO getReportByDate(Date dataInicio, Date dataFim) {
+    public ShopReportDTO getReportByDate(Date startDate, Date endDate) {
         String queryString = "select count(sp.id), sum(sp.total), avg(sp.total) " +
                 "from shopping.shop sp " +
-                "where  sp.date >= :dataInicio " +
-                "and sp.date <= :dataFim ";
+                "where  sp.date >= :startDate " +
+                "and sp.date <= :endDate ";
         Query query = entityManager.createNativeQuery(queryString);
-        query.setParameter("dataInicio", dataInicio);
-        query.setParameter("dataFim", dataFim);
+        query.setParameter("startDate", startDate);
+        query.setParameter("endDate", endDate);
 
         Object[] result = (Object[]) query.getSingleResult();
         ShopReportDTO shopReportDTO = new ShopReportDTO();

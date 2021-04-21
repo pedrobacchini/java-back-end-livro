@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query(value = "select p.nome, p.preco, p.productIdentifier "
+    @Query(value = "select p.name, p.price, p.productIdentifier "
             + "from product p "
             + "join category c on p.category.id = c.id "
             + "where c.id = :categoryId ")

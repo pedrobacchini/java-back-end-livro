@@ -20,7 +20,7 @@ public class ShoppingControllerAdvice {
     public ErrorDTO handleUserNotFound(ProductNotFoundException userNotFoundException) {
         ErrorDTO errorDTO = new ErrorDTO();
         errorDTO.setStatus(HttpStatus.NOT_FOUND.value());
-        errorDTO.setMessage("Produto não encontrado.");
+        errorDTO.setMessage("Product not found.");
         errorDTO.setTimestamp(new Date());
         return errorDTO;
     }
@@ -31,7 +31,7 @@ public class ShoppingControllerAdvice {
     public ErrorDTO handleUserNotFound(UserNotFoundException userNotFoundException) {
         ErrorDTO errorDTO = new ErrorDTO();
         errorDTO.setStatus(HttpStatus.NOT_FOUND.value());
-        errorDTO.setMessage("Usuário não encontrado.");
+        errorDTO.setMessage("User not found.");
         errorDTO.setTimestamp(new Date());
         return errorDTO;
     }

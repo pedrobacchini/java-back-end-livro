@@ -19,7 +19,7 @@ public class UserControllerAdvice {
     public ErrorDTO handleUserNotFound(UserNotFoundException userNotFoundException) {
         ErrorDTO errorDTO = new ErrorDTO();
         errorDTO.setStatus(HttpStatus.NOT_FOUND.value());
-        errorDTO.setMessage("Usuário não encontrado.");
+        errorDTO.setMessage("User not found.");
         errorDTO.setTimestamp(new Date());
         return errorDTO;
     }

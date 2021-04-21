@@ -20,14 +20,14 @@ public class UserService {
     private UserRepository userRepository;
 
     public List<UserDTO> getAll() {
-        List<User> usuarios = userRepository.findAll();
-        return usuarios.stream().map(DTOConverter::convert).collect(Collectors.toList());
+        List<User> users = userRepository.findAll();
+        return users.stream().map(DTOConverter::convert).collect(Collectors.toList());
     }
 
     public UserDTO findById(long userId) {
-        Optional<User> usuario = userRepository.findById(userId);
-        if (usuario.isPresent()) {
-            return DTOConverter.convert(usuario.get());
+        Optional<User> users = userRepository.findById(userId);
+        if (users.isPresent()) {
+            return DTOConverter.convert(users.get());
         }
         throw new UserNotFoundException();
     }
@@ -55,8 +55,8 @@ public class UserService {
     }
 
     public List<UserDTO> queryByName(String name) {
-        List<User> usuarios = userRepository.queryByNomeLike(name);
-        return usuarios.stream().map(DTOConverter::convert).collect(Collectors.toList());
+        List<User> users = userRepository.queryByNameLike(name);
+        return users.stream().map(DTOConverter::convert).collect(Collectors.toList());
     }
 
 }

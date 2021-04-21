@@ -14,7 +14,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String nome;
+    private String name;
 
     public long getId() {
         return id;
@@ -24,18 +24,18 @@ public class Category {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public static Category convert(CategoryDTO categoryDTO) {
         Category category = new Category();
         category.setId(categoryDTO.getId());
-        category.setNome(categoryDTO.getNome());
+        category.setName(categoryDTO.getName());
         return category;
     }
 

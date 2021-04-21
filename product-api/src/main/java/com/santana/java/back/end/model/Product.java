@@ -13,9 +13,9 @@ public class Product {
 
     private String productIdentifier;
 
-    private String nome;
+    private String name;
 
-    private Float preco;
+    private Float price;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -37,20 +37,20 @@ public class Product {
         this.productIdentifier = productIdentifier;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Float getPreco() {
-        return preco;
+    public Float getPrice() {
+        return price;
     }
 
-    public void setPreco(Float preco) {
-        this.preco = preco;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     public Category getCategory() {
@@ -63,8 +63,8 @@ public class Product {
 
     public static Product convert(ProductDTO productDTO) {
         Product product = new Product();
-        product.setNome(productDTO.getNome());
-        product.setPreco(productDTO.getPreco());
+        product.setName(productDTO.getName());
+        product.setPrice(productDTO.getPrice());
         product.setProductIdentifier(productDTO.getProductIdentifier());
         if (productDTO.getCategory() != null) {
             product.setCategory(Category.convert(productDTO.getCategory()));

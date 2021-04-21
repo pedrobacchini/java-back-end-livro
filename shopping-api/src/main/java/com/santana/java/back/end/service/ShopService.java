@@ -70,19 +70,19 @@ public class ShopService {
             if (productDTO == null) {
                 return false;
             }
-            item.setPrice(productDTO.getPreco());
+            item.setPrice(productDTO.getPrice());
         }
         return true;
     }
 
-    public List<ShopDTO> getShopsByFilter(Date dataInicio, Date dataFim, Float valorMinimo) {
-        List<Shop> shops = shopRepository.getShopByFilters(dataInicio, dataFim, valorMinimo);
+    public List<ShopDTO> getShopsByFilter(Date startDate, Date endDate, Float minimumValue) {
+        List<Shop> shops = shopRepository.getShopByFilters(startDate, endDate, minimumValue);
         return shops.stream().map(DTOConverter::convert).collect(Collectors.toList());
 
     }
 
-    public ShopReportDTO getReportByDate(Date dataInicio, Date dataFim) {
-        return shopRepository.getReportByDate(dataInicio, dataFim);
+    public ShopReportDTO getReportByDate(Date startDate, Date endDate) {
+        return shopRepository.getReportByDate(startDate, endDate);
     }
 
 }
