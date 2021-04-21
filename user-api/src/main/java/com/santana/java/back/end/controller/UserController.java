@@ -1,5 +1,6 @@
 package com.santana.java.back.end.controller;
 
+import com.santana.java.back.end.dto.RegisterUser;
 import com.santana.java.back.end.dto.UserDTO;
 import com.santana.java.back.end.exception.UserNotFoundException;
 import com.santana.java.back.end.service.UserService;
@@ -14,7 +15,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/user/")
+    @GetMapping("/user")
     public List<UserDTO> getUsers() {
         return userService.getAll();
     }
@@ -25,8 +26,8 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public UserDTO newUser(@RequestBody UserDTO userDTO) {
-        return userService.save(userDTO);
+    public UserDTO newUser(@RequestBody RegisterUser registerUser) {
+        return userService.save(registerUser);
     }
 
     @GetMapping("/user/cpf/{cpf}")

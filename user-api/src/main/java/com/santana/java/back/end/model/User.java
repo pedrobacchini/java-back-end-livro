@@ -1,6 +1,6 @@
 package com.santana.java.back.end.model;
 
-import com.santana.java.back.end.dto.UserDTO;
+import com.santana.java.back.end.dto.RegisterUser;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ public class User {
     private String key;
     private String email;
     private String phone;
-    private Date registerDate;
+    private final Date registerDate = new Date();
 
     public long getId() {
         return id;
@@ -82,19 +82,14 @@ public class User {
         return registerDate;
     }
 
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
-    }
-
-    public static User convert(UserDTO userDTO) {
+    public static User convert(RegisterUser registerUser) {
         User user = new User();
-        user.setName(userDTO.getName());
-        user.setAddress(userDTO.getAddress());
-        user.setCpf(userDTO.getCpf());
-        user.setKey(userDTO.getKey());
-        user.setEmail(userDTO.getEmail());
-        user.setPhone(userDTO.getPhone());
-        user.setRegisterDate(userDTO.getRegisterDate());
+        user.setName(registerUser.getName());
+        user.setAddress(registerUser.getAddress());
+        user.setCpf(registerUser.getCpf());
+        user.setKey(registerUser.getKey());
+        user.setEmail(registerUser.getEmail());
+        user.setPhone(registerUser.getPhone());
         return user;
     }
 

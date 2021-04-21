@@ -1,6 +1,7 @@
 package com.santana.java.back.end.service;
 
 import com.santana.java.back.end.converter.DTOConverter;
+import com.santana.java.back.end.dto.RegisterUser;
 import com.santana.java.back.end.dto.UserDTO;
 import com.santana.java.back.end.exception.UserNotFoundException;
 import com.santana.java.back.end.model.User;
@@ -32,11 +33,11 @@ public class UserService {
         throw new UserNotFoundException();
     }
 
-    public UserDTO save(UserDTO userDTO) {
+    public UserDTO save(RegisterUser registerUser) {
 
-        userDTO.setKey(UUID.randomUUID().toString());
+        registerUser.setKey(UUID.randomUUID().toString());
 
-        User user = userRepository.save(User.convert(userDTO));
+        User user = userRepository.save(User.convert(registerUser));
         return DTOConverter.convert(user);
     }
 
