@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UserDTO {
 
+    private long id;
     private String name;
     private String cpf;
     private String address;
@@ -11,6 +12,14 @@ public class UserDTO {
     private String email;
     private String phone;
     private Date registerDate;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -67,5 +76,4 @@ public class UserDTO {
     public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
     }
-
 }
