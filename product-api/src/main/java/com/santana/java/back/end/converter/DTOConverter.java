@@ -1,10 +1,9 @@
-package com.santan.java.back.end.converter;
+package com.santana.java.back.end.converter;
 
 import com.santana.java.back.end.dto.CategoryDTO;
 import com.santana.java.back.end.dto.ProductDTO;
 import com.santana.java.back.end.model.Category;
 import com.santana.java.back.end.model.Product;
-
 
 public class DTOConverter {
 

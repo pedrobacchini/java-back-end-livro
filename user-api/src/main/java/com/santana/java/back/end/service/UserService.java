@@ -1,6 +1,6 @@
 package com.santana.java.back.end.service;
 
-import com.santan.java.back.end.converter.DTOConverter;
+import com.santana.java.back.end.converter.DTOConverter;
 import com.santana.java.back.end.dto.UserDTO;
 import com.santana.java.back.end.exception.UserNotFoundException;
 import com.santana.java.back.end.model.User;
