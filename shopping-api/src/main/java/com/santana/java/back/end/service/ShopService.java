@@ -5,7 +5,6 @@ import com.santana.java.back.end.dto.*;
 import com.santana.java.back.end.exception.ProductNotFoundException;
 import com.santana.java.back.end.model.Shop;
 import com.santana.java.back.end.repository.ShopRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -16,14 +15,17 @@ import java.util.stream.Collectors;
 @Service
 public class ShopService {
 
-    @Autowired
-    private ShopRepository shopRepository;
+    private final ShopRepository shopRepository;
+    private final ProductService productService;
+    private final UserService userService;
 
-    @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private UserService userService;
+    public ShopService(ShopRepository shopRepository,
+                       ProductService productService,
+                       UserService userService) {
+        this.shopRepository = shopRepository;
+        this.productService = productService;
+        this.userService = userService;
+    }
 
     public List<ShopDTO> getAll() {
         List<Shop> shops = shopRepository.findAll();

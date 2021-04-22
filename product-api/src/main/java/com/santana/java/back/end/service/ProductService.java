@@ -7,7 +7,6 @@ import com.santana.java.back.end.exception.ProductNotFoundException;
 import com.santana.java.back.end.model.Product;
 import com.santana.java.back.end.repository.CategoryRepository;
 import com.santana.java.back.end.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,11 +16,14 @@ import java.util.stream.Collectors;
 @Service
 public class ProductService {
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
-    @Autowired
-    private CategoryRepository categoryRepository;
+    public ProductService(ProductRepository productRepository,
+                          CategoryRepository categoryRepository) {
+        this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
     public List<ProductDTO> getAll() {
         List<Product> products = productRepository.findAll();

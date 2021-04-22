@@ -3,7 +3,6 @@ package com.santana.java.back.end.controller;
 import com.santana.java.back.end.dto.ProductDTO;
 import com.santana.java.back.end.exception.ProductNotFoundException;
 import com.santana.java.back.end.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,8 +11,11 @@ import java.util.List;
 @RestController
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/product")
     public List<ProductDTO> getProducts() {

@@ -3,7 +3,6 @@ package com.santana.java.back.end.controller;
 import com.santana.java.back.end.dto.ShopDTO;
 import com.santana.java.back.end.dto.ShopReportDTO;
 import com.santana.java.back.end.service.ShopService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +12,11 @@ import java.util.List;
 @RestController
 public class ShopController {
 
-    @Autowired
-    private ShopService shopService;
+    private final ShopService shopService;
+
+    public ShopController(ShopService shopService) {
+        this.shopService = shopService;
+    }
 
     @GetMapping("/shopping/")
     public List<ShopDTO> getShops() {
