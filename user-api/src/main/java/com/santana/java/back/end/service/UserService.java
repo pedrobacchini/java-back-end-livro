@@ -43,13 +43,9 @@ public class UserService {
 
     public UserDTO delete(long userId) throws UserNotFoundException {
         Optional<User> userOptional = userRepository.findById(userId);
-        if(userOptional.isPresent()) {
-            User user = userOptional.get();
-            userRepository.delete(user);
-            return DTOConverter.convert(user);
-        }
-        else
-            throw new UserNotFoundException();
+        User user = userOptional.orElseThrow(UserNotFoundException::new);
+        userRepository.delete(user);
+        return DTOConverter.convert(user);
     }
 
     public UserDTO findByCpf(String cpf, String key) {
